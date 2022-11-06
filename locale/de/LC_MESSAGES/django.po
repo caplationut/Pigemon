@@ -1,0 +1,812 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-27 08:58+0300\n"
+"PO-Revision-Date: 2022-10-27 09:32+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: .\breeder\modelmanager.py:14
+msgid "Enter an email address!"
+msgstr "Geben Sie eine E-Mail-Adresse ein!"
+
+#: .\breeder\models.py:13
+msgid "English"
+msgstr "Englisch"
+
+#: .\breeder\models.py:14
+msgid "Romanian"
+msgstr "Rumänisch"
+
+#: .\breeder\models.py:15
+msgid "French"
+msgstr "Französisch"
+
+#: .\breeder\models.py:16
+msgid "Dutch"
+msgstr "Niederländisch"
+
+#: .\breeder\models.py:17
+msgid "German"
+msgstr "Deutsch"
+
+#: .\breeder\models.py:18
+msgid "Italian"
+msgstr "Italienisch"
+
+#: .\breeder\models.py:19
+msgid "Spanish"
+msgstr "Spanisch"
+
+#: .\breeder\models.py:26
+msgid "first name"
+msgstr "Vorname"
+
+#: .\breeder\models.py:32
+msgid "last name"
+msgstr "Nachname"
+
+#: .\breeder\models.py:37
+msgid "email"
+msgstr "e-mail"
+
+#: .\breeder\models.py:43
+msgid "phone number"
+msgstr "telefonnummer"
+
+#: .\breeder\models.py:49 .\loft\models.py:39
+msgid "address"
+msgstr "adresse"
+
+#: .\breeder\models.py:55
+msgid "region state"
+msgstr "regionalstaat"
+
+#: .\breeder\models.py:61 .\pigeon\models.py:93
+msgid "country"
+msgstr "land"
+
+#: .\breeder\models.py:63
+msgid "date joined"
+msgstr "Mitglied seit"
+
+#: .\breeder\models.py:64
+msgid "last login"
+msgstr "letzte Anmeldung"
+
+#: .\breeder\models.py:65
+msgid "last updated"
+msgstr "letztes Update"
+
+#: .\breeder\models.py:66
+msgid "is staff"
+msgstr "ist Personal"
+
+#: .\breeder\models.py:67
+msgid "is superuser"
+msgstr "ist Superuser"
+
+#: .\breeder\models.py:68
+msgid "is active"
+msgstr "aktiv"
+
+#: .\breeder\models.py:69
+msgid "is verified"
+msgstr "ist verifiziert"
+
+#: .\breeder\models.py:70 .\pigeon\models.py:294
+msgid "picture"
+msgstr "Bild"
+
+#: .\breeder\models.py:75
+msgid "language"
+msgstr "sprache"
+
+#: .\breeder\models.py:85
+msgid "Breeder"
+msgstr "Züchter"
+
+#: .\breeder\models.py:86
+msgid "Breeders"
+msgstr "Züchter"
+
+#: .\breeder\templates\breeder\base.html:239
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: .\breeder\templates\breeder\base.html:256 .\pigeon\models.py:299
+#: .\pigeon\templates\pigeon\pigeons.html:22
+msgid "Pigeons"
+msgstr "Tauben"
+
+#: .\breeder\templates\breeder\base.html:271
+#: .\loft\templates\loft\add_loft.html:43
+#: .\pigeon\templates\pigeon\add_pigeon.html:47 .\pigeon\views.py:46
+msgid "View pigeons"
+msgstr "Tauben ansehen"
+
+#: .\breeder\templates\breeder\base.html:285
+msgid "Pairs"
+msgstr "Paare"
+
+#: .\breeder\templates\breeder\base.html:297
+msgid "Rating"
+msgstr "Bewertung"
+
+#: .\breeder\templates\breeder\base.html:313
+#: .\breeder\templates\breeder\base.html:457
+#: .\breeder\templates\breeder\base.html:526
+#: .\breeder\templates\breeder\base.html:595
+#: .\breeder\templates\breeder\base.html:665
+msgid "Reports"
+msgstr "Berichte"
+
+#: .\breeder\templates\breeder\base.html:330
+#: .\breeder\templates\breeder\base.html:474
+#: .\breeder\templates\breeder\base.html:543
+#: .\breeder\templates\breeder\base.html:612
+#: .\breeder\templates\breeder\base.html:682
+msgid "Statistics"
+msgstr "Statistik"
+
+#: .\breeder\templates\breeder\base.html:353
+msgid "Genetics"
+msgstr "Genetik"
+
+#: .\breeder\templates\breeder\base.html:370 .\pigeon\models.py:45
+msgid "Pigeon lines"
+msgstr "Taubenlinien"
+
+#: .\breeder\templates\breeder\base.html:383
+msgid "Create pigeon line"
+msgstr "Taubenlinie erstellen"
+
+#: .\breeder\templates\breeder\base.html:401
+msgid "Theories"
+msgstr "Theorien"
+
+#: .\breeder\templates\breeder\base.html:424
+msgid "Races"
+msgstr "Rennen"
+
+#: .\breeder\templates\breeder\base.html:441
+msgid "View races"
+msgstr "Rennen ansehen"
+
+#: .\breeder\templates\breeder\base.html:493
+msgid "Race results"
+msgstr "Rennergebnisse"
+
+#: .\breeder\templates\breeder\base.html:510
+msgid "View results"
+msgstr "Ergebnisse ansehen"
+
+#: .\breeder\templates\breeder\base.html:562
+msgid "Medication"
+msgstr "Medikation"
+
+#: .\breeder\templates\breeder\base.html:579
+msgid "View treatments"
+msgstr "Behandlungen ansehen"
+
+#: .\breeder\templates\breeder\base.html:632
+msgid "Auctions"
+msgstr "Auktionen"
+
+#: .\breeder\templates\breeder\base.html:649
+msgid "View auctions"
+msgstr "Auktionen ansehen"
+
+#: .\breeder\templates\breeder\base.html:704
+msgid "Search pigeon"
+msgstr "Taube suchen"
+
+#: .\breeder\templates\breeder\login.html:32
+msgid "Login to your account"
+msgstr "In deinem Konto anmelden"
+
+#: .\breeder\templates\breeder\login.html:34
+msgid "Email address"
+msgstr "E-Mail-Adresse"
+
+#: .\breeder\templates\breeder\login.html:40
+msgid "Password"
+msgstr "Passwort"
+
+#: .\breeder\templates\breeder\login.html:42
+msgid "I forgot password"
+msgstr "Ich habe mein Passwort vergessen"
+
+#: .\breeder\templates\breeder\login.html:61 .\loft\views.py:14
+msgid "Sign in"
+msgstr "Anmelden"
+
+#: .\fixtures.py:5
+msgid "Stock"
+msgstr "Lager"
+
+#: .\fixtures.py:6
+msgid "Active"
+msgstr "Aktiv"
+
+#: .\fixtures.py:7
+msgid "Dead"
+msgstr "Tot"
+
+#: .\fixtures.py:8
+msgid "Racer"
+msgstr "Rennfahrer"
+
+#: .\fixtures.py:9
+msgid "Lost Racing"
+msgstr "Verlorene Rennen"
+
+#: .\fixtures.py:10
+msgid "Lost Training"
+msgstr "Verlorene Ausbildung"
+
+#: .\fixtures.py:11
+msgid "Lost of Loft"
+msgstr "Verloren von Loft"
+
+#: .\fixtures.py:12
+msgid "Sold"
+msgstr "Verkauft"
+
+#: .\fixtures.py:13
+msgid "For Sale"
+msgstr "Zu verkaufen"
+
+#: .\fixtures.py:14
+msgid "On Loan From"
+msgstr "Leihgabe von"
+
+#: .\fixtures.py:15
+msgid "On Loan to"
+msgstr "Ausgeliehen an"
+
+#: .\fixtures.py:16
+msgid "Missing"
+msgstr "Fehlend"
+
+#: .\fixtures.py:20
+msgid "Blue"
+msgstr "Blau"
+
+#: .\fixtures.py:21
+msgid "White"
+msgstr "Weiß"
+
+#: .\fixtures.py:22
+msgid "Ash red"
+msgstr "Ascherot"
+
+#: .\loft\forms.py:8 .\pigeon\templates\pigeon\add_pigeon.html:13
+#: .\pigeon\templates\pigeon\edit_pigeon.html:18
+#: .\pigeon\templates\pigeon\pigeons.html:18
+msgid "Loft name"
+msgstr "Name des Lofts"
+
+#: .\loft\forms.py:9
+msgid "Enter loft name"
+msgstr "Geben Sie den Loft-Namen ein"
+
+#: .\loft\forms.py:10
+msgid "You can choose any name you want."
+msgstr "Sie können einen beliebigen Namen wählen."
+
+#: .\loft\forms.py:11
+msgid "Latitude"
+msgstr "Breite"
+
+#: .\loft\forms.py:12
+msgid "Enter latitude"
+msgstr "Breitengrad eingeben"
+
+#: .\loft\forms.py:13
+msgid "Your loft's latitude."
+msgstr "Der Spielraum Ihres Lofts."
+
+#: .\loft\forms.py:14
+msgid "Longitude"
+msgstr "Länge"
+
+#: .\loft\forms.py:15
+msgid "Enter longitude"
+msgstr "Längengrad eingeben"
+
+#: .\loft\forms.py:16
+msgid "Your loft's longitude."
+msgstr "Der Längengrad Ihres Lofts."
+
+#: .\loft\forms.py:23
+msgid "This loft's name is too long."
+msgstr "Der Name dieses Lofts ist zu lang."
+
+#: .\loft\forms.py:26 .\loft\forms.py:29
+msgid "Ensure that there are no more than 9 digits in total."
+msgstr "Stellen Sie sicher, dass insgesamt nicht mehr als 9 Ziffern vorhanden sind."
+
+#: .\loft\forms.py:34
+msgid ""
+" Country \n"
+" Region/State \n"
+" Street \n"
+" Number"
+msgstr ""
+" Land \n"
+" Region/Bundesland \n"
+" Straße \n"
+" Zahl"
+
+#: .\loft\models.py:17
+msgid "breeder"
+msgstr "züchter"
+
+#: .\loft\models.py:20 .\pigeon\models.py:83 .\pigeon\models.py:274
+msgid "name"
+msgstr "name"
+
+#: .\loft\models.py:26
+msgid "latitude"
+msgstr "Breite"
+
+#: .\loft\models.py:33
+msgid "longitude"
+msgstr "Länge"
+
+#: .\loft\models.py:43
+msgid "Loft"
+msgstr "Loft"
+
+#: .\loft\models.py:44
+msgid "Lofts"
+msgstr "Die Loft"
+
+#: .\loft\templates\loft\add_loft.html:12
+msgid "New Loft"
+msgstr "Neues Loft"
+
+#: .\loft\templates\loft\add_loft.html:27
+msgid "Enter loft details"
+msgstr "Details zum Dachboden eingeben"
+
+#: .\loft\templates\loft\add_loft.html:54
+#: .\pigeon\templates\pigeon\add_pigeon.html:58
+msgid "Save"
+msgstr "Retten"
+
+#: .\loft\templates\loft\add_loft.html:64
+#: .\pigeon\templates\pigeon\add_pigeon.html:68
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: .\loft\templates\loft\add_loft.html:94
+#: .\loft\templates\loft\add_loft.html:111
+msgid "We will use it to calculate the distance in competitions."
+msgstr "Wir werden es verwenden, um die Distanz in Wettbewerben zu berechnen."
+
+#: .\loft\templates\loft\add_loft.html:95
+#: .\loft\templates\loft\add_loft.html:112
+msgid "Find my coordinates"
+msgstr "Meine Koordinaten finden"
+
+#: .\loft\views.py:25
+msgid "Add new loft"
+msgstr "Neuen Taubenschlag hinzufügen"
+
+#: .\pigeon\forms.py:8
+msgid "Choose sire"
+msgstr "Wählen Sie den Vater"
+
+#: .\pigeon\forms.py:8 .\pigeon\templates\pigeon\pigeons.html:314
+msgid "Sire"
+msgstr "Vater"
+
+#: .\pigeon\forms.py:12
+msgid "Choose dam"
+msgstr "Wählen Sie einen Damm"
+
+#: .\pigeon\forms.py:12 .\pigeon\templates\pigeon\pigeons.html:314
+msgid "Dam"
+msgstr "Mutter"
+
+#: .\pigeon\forms.py:16
+msgid "Select status"
+msgstr "Status auswählen"
+
+#: .\pigeon\forms.py:16 .\pigeon\models.py:166
+#: .\pigeon\templates\pigeon\pigeons.html:314
+msgid "Status"
+msgstr ""
+
+#: .\pigeon\forms.py:20 .\pigeon\forms.py:24
+msgid "Select color"
+msgstr ""
+
+#: .\pigeon\forms.py:20 .\pigeon\models.py:126
+#: .\pigeon\templates\pigeon\pigeons.html:313
+msgid "Color"
+msgstr ""
+
+#: .\pigeon\forms.py:25
+msgid " Eye color"
+msgstr ""
+
+#: .\pigeon\forms.py:29
+msgid "Select strain"
+msgstr ""
+
+#: .\pigeon\forms.py:33
+msgid "Select line"
+msgstr ""
+
+#: .\pigeon\forms.py:33
+msgid "Line"
+msgstr ""
+
+#: .\pigeon\forms.py:61
+msgid "Pigeon country code"
+msgstr ""
+
+#: .\pigeon\forms.py:61
+msgid "Country"
+msgstr "Land"
+
+#: .\pigeon\forms.py:65
+msgid "Pigeon Organisation"
+msgstr ""
+
+#: .\pigeon\forms.py:65
+msgid "Organisation"
+msgstr ""
+
+#: .\pigeon\forms.py:68
+msgid "The numbers on the pigeon ring"
+msgstr ""
+
+#: .\pigeon\forms.py:68
+msgid "Digits"
+msgstr ""
+
+#: .\pigeon\forms.py:71
+msgid "Hatch year"
+msgstr ""
+
+#: .\pigeon\forms.py:71
+msgid "Year"
+msgstr ""
+
+#: .\pigeon\models.py:26 .\pigeon\models.py:79 .\pigeon\models.py:203
+msgid "loft"
+msgstr ""
+
+#: .\pigeon\models.py:30
+msgid "line name"
+msgstr ""
+
+#: .\pigeon\models.py:34
+msgid "founder pigeon"
+msgstr ""
+
+#: .\pigeon\models.py:40 .\pigeon\models.py:103
+msgid "notes"
+msgstr ""
+
+#: .\pigeon\models.py:44
+msgid "Pigeon line"
+msgstr ""
+
+#: .\pigeon\models.py:69
+msgid "Short distance"
+msgstr ""
+
+#: .\pigeon\models.py:70
+msgid "Middle distance"
+msgstr ""
+
+#: .\pigeon\models.py:71
+msgid "Long distance"
+msgstr ""
+
+#: .\pigeon\models.py:72
+msgid "Marathon"
+msgstr ""
+
+#: .\pigeon\models.py:87
+msgid "creator full name"
+msgstr ""
+
+#: .\pigeon\models.py:97
+msgid "category"
+msgstr ""
+
+#: .\pigeon\models.py:107 .\pigeon\templates\pigeon\pigeons.html:313
+msgid "Strain"
+msgstr ""
+
+#: .\pigeon\models.py:108
+msgid "Strains"
+msgstr ""
+
+#: .\pigeon\models.py:122 .\pigeon\models.py:163 .\pigeon\models.py:216
+msgid "color"
+msgstr ""
+
+#: .\pigeon\models.py:127
+msgid "Colors"
+msgstr ""
+
+#: .\pigeon\models.py:141 .\pigeon\models.py:223
+msgid "eye color"
+msgstr ""
+
+#: .\pigeon\models.py:145
+msgid "Eye color"
+msgstr ""
+
+#: .\pigeon\models.py:146
+msgid "Eye colors"
+msgstr ""
+
+#: .\pigeon\models.py:160 .\pigeon\models.py:266 .\pigeon\models.py:394
+msgid "status"
+msgstr ""
+
+#: .\pigeon\models.py:162
+msgid "in loft"
+msgstr ""
+
+#: .\pigeon\models.py:167
+msgid "Statuses"
+msgstr ""
+
+#: .\pigeon\models.py:181
+msgid "Select gender"
+msgstr ""
+
+#: .\pigeon\models.py:182
+msgid "Male"
+msgstr ""
+
+#: .\pigeon\models.py:183
+msgid "Female"
+msgstr ""
+
+#: .\pigeon\models.py:184
+msgid "Unknown"
+msgstr ""
+
+#: .\pigeon\models.py:187
+msgid "Select section"
+msgstr ""
+
+#: .\pigeon\models.py:188
+msgid "New_entry"
+msgstr ""
+
+#: .\pigeon\models.py:189
+msgid "Young_bird"
+msgstr ""
+
+#: .\pigeon\models.py:190
+msgid "Old_bird"
+msgstr ""
+
+#: .\pigeon\models.py:191
+msgid "Breeding"
+msgstr ""
+
+#: .\pigeon\models.py:192
+msgid "Widow_hen"
+msgstr ""
+
+#: .\pigeon\models.py:193
+msgid "Widow_cock"
+msgstr ""
+
+#: .\pigeon\models.py:194
+msgid "Quarantine"
+msgstr ""
+
+#: .\pigeon\models.py:209
+msgid "pigeon organisation"
+msgstr ""
+
+#: .\pigeon\models.py:232
+msgid "strain"
+msgstr ""
+
+#: .\pigeon\models.py:241
+msgid "line"
+msgstr ""
+
+#: .\pigeon\models.py:250
+msgid "sire"
+msgstr ""
+
+#: .\pigeon\models.py:259
+msgid "dam"
+msgstr ""
+
+#: .\pigeon\models.py:268
+msgid "date added"
+msgstr ""
+
+#: .\pigeon\models.py:269
+msgid "pigeon country code"
+msgstr ""
+
+#: .\pigeon\models.py:270
+msgid "pigeon ring number"
+msgstr ""
+
+#: .\pigeon\models.py:271
+msgid "ring year"
+msgstr ""
+
+#: .\pigeon\models.py:272
+msgid "gender"
+msgstr ""
+
+#: .\pigeon\models.py:273
+msgid "hatch date"
+msgstr ""
+
+#: .\pigeon\models.py:275
+msgid "section"
+msgstr ""
+
+#: .\pigeon\models.py:279
+msgid "is hidden"
+msgstr ""
+
+#: .\pigeon\models.py:281
+msgid "is best"
+msgstr ""
+
+#: .\pigeon\models.py:285
+msgid "event date"
+msgstr ""
+
+#: .\pigeon\models.py:286
+msgid "vaccine date"
+msgstr ""
+
+#: .\pigeon\models.py:289
+msgid "info"
+msgstr ""
+
+#: .\pigeon\models.py:292
+msgid "other info"
+msgstr ""
+
+#: .\pigeon\models.py:295
+msgid "eye picture"
+msgstr ""
+
+#: .\pigeon\models.py:298
+msgid "Pigeon"
+msgstr ""
+
+#: .\pigeon\models.py:372
+msgid "pigeon"
+msgstr ""
+
+#: .\pigeon\models.py:380
+msgid "initiator"
+msgstr ""
+
+#: .\pigeon\models.py:383
+msgid "proof picture"
+msgstr ""
+
+#: .\pigeon\models.py:388
+msgid "comments"
+msgstr ""
+
+#: .\pigeon\models.py:400
+msgid "admin resolution"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\add_pigeon.html:16
+msgid "New Pigeon"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\add_pigeon.html:31
+#, fuzzy
+#| msgid "Enter loft details"
+msgid "Enter pigeon details"
+msgstr "Details zum Dachboden eingeben"
+
+#: .\pigeon\templates\pigeon\add_pigeon.html:76
+#: .\pigeon\templates\pigeon\pigeons.html:312
+#, fuzzy
+#| msgid "Enter loft details"
+msgid "Ring details"
+msgstr "Details zum Dachboden eingeben"
+
+#: .\pigeon\templates\pigeon\edit_pigeon.html:29
+#: .\pigeon\templates\pigeon\pigeons.html:29
+msgid "Add pigeon"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\edit_pigeon.html:33
+#: .\pigeon\templates\pigeon\pigeons.html:33
+msgid "Add pair"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\edit_pigeon.html:36
+#: .\pigeon\templates\pigeon\pigeons.html:36
+msgid "Ratings"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\edit_pigeon.html:40
+#: .\pigeon\templates\pigeon\pigeons.html:40
+msgid "Export pigeons"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\edit_pigeon.html:64
+#: .\pigeon\templates\pigeon\pigeons.html:64
+msgid "Something happened..."
+msgstr ""
+
+#: .\pigeon\templates\pigeon\edit_pigeon.html:163
+#: .\pigeon\templates\pigeon\pigeons.html:128
+msgid "Males"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\pigeons.html:98
+msgid "Total pigeons"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\pigeons.html:157
+msgid "Females"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\pigeons.html:185
+msgid "Youngsters"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\pigeons.html:312
+msgid "Gender"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\pigeons.html:313
+msgid "Section"
+msgstr ""
+
+#: .\pigeon\templates\pigeon\pigeons.html:315
+msgid "Action"
+msgstr ""
+
+#: .\pigeon\views.py:16
+#, fuzzy
+#| msgid "Add new loft"
+msgid "Add new pigeon"
+msgstr "Neuen Dachboden hinzufügen"
+
+#: .\pigeon\views.py:68
+msgid "The selected pigeon does not exist or has been deleted from the database."
+msgstr ""
+
+#: .\pigeon\views.py:72
+#, python-brace-format
+msgid "The pigeon with the ring , '{0}' does not exist or has been deleted!"
+msgstr ""
+
+#: .\pigeon\views.py:76
+msgid "Update pigeon info"
+msgstr ""

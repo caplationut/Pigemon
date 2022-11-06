@@ -59,4 +59,4 @@ class PigeonModelTest(TestCase):
     def test_field_completion(self):
         """ Field completion percentage test. """
         pigeon = Pigeon.objects.get(id=1)
-        self.assertEqual(round(pigeon.field_completion, 2), 47.83)
+        self.assertEqual(pigeon.field_completion(), 50)

@@ -1,7 +1,6 @@
 """ Writing tests for app breeder. """
 
 from django.test import TestCase
-from graphene_django.utils import GraphQLTestCase
 
 from .models import Breeder
 
@@ -38,60 +37,5 @@ class BreederModelTest(TestCase):
 
     def test_breeder_profile_completion(self):
         breeder = Breeder.objects.get(id=1)
-        self.assertEqual(breeder.profile_completion, 40)
-
-
-class TestBreederGraphql(GraphQLTestCase):
-    GRAPHQL_URL = "/graphql"
-
-    def test_breeders_query(self):
-        """Test GraphQL query for breeders list."""
-        resp = self.query(
-            '''
-            query {
-                breeders {
-                    firstName,
-                    lastName,
-                    email
-                }
-            }
-            '''
-        )
-
-        self.assertResponseNoErrors(resp)
-
-    def test_breeder_query_by_id(self):
-        """Test GraphQL query for breeder by id."""
-        Breeder.objects.create_user("test@test.com", 'passw0rd')
-        resp = self.query(
-            '''
-            query {
-                breeder(id: 1) {
-                    firstName,
-                    lastName,
-                    email
-                }
-            }
-            '''
-        )
-
-        self.assertResponseNoErrors(resp)
-
-    def test_breeder_creation_mutation(self):
-        """Test breeder creation mutation."""
-        resp = self.query(
-            '''
-            mutation {
-                register(
-                        email: "test1@te.com",
-                        password1: "pa55w0rd",
-                        password2: "pa55w0rd"
-                     ) {
-                    success,
-                    errors
-                }
-            }
-            '''
-        )
-
-        self.assertResponseNoErrors(resp)
+        # you must count the language field which is autopopulated on user creation
+        self.assertEqual(breeder.profile_completion, 50)
