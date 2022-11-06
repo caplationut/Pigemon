@@ -37,4 +37,5 @@ class BreederModelTest(TestCase):
 
     def test_breeder_profile_completion(self):
         breeder = Breeder.objects.get(id=1)
-        self.assertEqual(breeder.profile_completion, 40)
+        # you must count the language field which is autopopulated on user creation
+        self.assertEqual(breeder.profile_completion, 50)
