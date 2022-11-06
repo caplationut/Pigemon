@@ -1,10 +1,348 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "breeder/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block csslibs %}
+    {{ block.super }}
+    <script src="{% static 'libs/datatable/handsontable.full.min.js' %}"></script>
+    <link href="{% static 'libs/datatable/handsontable.full.css' %}" rel="stylesheet"/>
+{% endblock csslibs %}
+{% block content %}
+    <div class="container-xl">
+        <!-- Page title -->
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="page-pretitle">
+                        <span class="badge badge-outline text-azure"
+                              title="{% translate "Loft name" %}">{{ lofts.name }}
+                        </span>
+                    </div>
+                    <h2 class="page-title">
+                        {% translate "Pigeons" %}
+                    </h2>
+                </div>
+                <div class="col-auto ms-auto">
+                    <div class="btn-list">
+                        <span class="d-none d-sm-inline">
+                          <a href="{% url 'new-pigeon' %}" class="btn btn-success btn-sm">
+                                {% translate "Add pigeon" %}
+                          </a>
+                        </span>
+                        <a href="#" class="btn btn-success d-none d-sm-inline-block btn-sm">
+                            {% translate "Add pair" %}
+                        </a>
+                        <a href="#" class="btn btn-success d-none d-sm-inline-block btn-sm">
+                            {% translate "Ratings" %}
+                        </a>
+                        <span class="d-none d-sm-inline">
+                          <a href="#" class="btn btn-blue btn-sm" id="export-file">
+                                {% translate "Export pigeons" %}
+                          </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-body">
+        <div class="container-xl">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible" id="success-alert" role="alert">
+                        <div class="d-flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="alert-icon" width="24" height="24"
+                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                     stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M12 9v2m0 4v.01"></path>
+                                    <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="alert-title">{% translate "Something happened..." %}</h4>
+                                <div class="text-muted">{{ message }}</div>
+                            </div>
+                        </div>
+                        <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="row row-cards">
+                <div class="col-12">
+                    <div class="row row-cards">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-green-lt text-white avatar">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon " width="24"
+                                                     height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                     stroke="currentColor" fill="none" stroke-linecap="round"
+                                                     stroke-linejoin="round">
+                                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                   <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783
+                                                   -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135
+                                                   -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6
+                                                   2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723
+                                                   7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51
+                                                   -2.772 1.818 -4.013z">
+                                                   </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                <strong>{% translate "Total pigeons" %}</strong>
+                                            </div>
+                                            <div class="text-muted">
+                                                {{ total }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-azure-lt text-white avatar">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                     height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                     stroke="currentColor" fill="none" stroke-linecap="round"
+                                                     stroke-linejoin="round">
+                                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                   <circle cx="10" cy="14" r="5"></circle>
+                                                   <path d="M19 5l-5.4 5.4"></path>
+                                                   <path d="M19 5h-5"></path>
+                                                   <path d="M19 5v5"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                <strong>{% translate "Males" %}</strong>
+                                            </div>
+                                            <div class="text-muted">
+                                                {{ count.male }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-pink-lt text-white avatar">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                     height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                     stroke="currentColor" fill="none" stroke-linecap="round"
+                                                     stroke-linejoin="round">
+                                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                   <circle cx="12" cy="9" r="5"></circle>
+                                                   <path d="M12 14v7"></path>
+                                                   <path d="M9 18h6"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                <strong>{% translate "Females" %}</strong>
+                                            </div>
+                                            <div class="text-muted">
+                                                {{ count.female }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-orange-lt text-white avatar">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                     height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                     stroke="currentColor" fill="none" stroke-linecap="round"
+                                                     stroke-linejoin="round">
+                                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                   <circle cx="12" cy="12" r="6"></circle>
+                                                   <path d="M7 12h11"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                <strong>{% translate "Youngsters" %}</strong>
+                                            </div>
+                                            <div class="text-muted">
+                                                {{ count.unknown }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="porumbei"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block jslibs %}
+    <!-- Libs JS -->
 
-</body>
-</html>
+    <script>
+        const data = [
+            {% for p in pigeons %}
+                {
+                    gender: {% if p.gender == "MA" %}
+                        `<svg xmlns="http://www.w3.org/2000/svg" class="avatar avatar-sm bg-azure-lt" width="24"
+                             height="24" viewBox="0 0 24 24" stroke-width="2"
+                             stroke="currentColor" fill="none" stroke-linecap="round"
+                             stroke-linejoin="round">
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                           <circle cx="10" cy="14" r="5"></circle>
+                           <path d="M19 5l-5.4 5.4"></path>
+                           <path d="M19 5h-5"></path>
+                           <path d="M19 5v5"></path>
+                        </svg>`
+                            {% elif p.gender == "FE" %}
+                            `<svg xmlns="http://www.w3.org/2000/svg" class="avatar avatar-sm bg-pink-lt" width="24"
+                             height="24" viewBox="0 0 24 24" stroke-width="2"
+                             stroke="currentColor" fill="none" stroke-linecap="round"
+                             stroke-linejoin="round">
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                           <circle cx="12" cy="9" r="5"></circle>
+                           <path d="M12 14v7"></path>
+                           <path d="M9 18h6"></path>
+                        </svg>`
+                            {% else %}
+                            `<svg xmlns="http://www.w3.org/2000/svg" class="avatar avatar-sm bg-orange-lt" width="24"
+                             height="24" viewBox="0 0 24 24" stroke-width="2"
+                             stroke="currentColor" fill="none" stroke-linecap="round"
+                             stroke-linejoin="round">
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                           <circle cx="12" cy="12" r="6"></circle>
+                           <path d="M7 12h11"></path>
+                        </svg>`
+                    {% endif %},
+                    ring: `<a href="{% url 'edit-pigeon' p.pk %}">{{ p.ring_serial }}</a>`,
+                    color: "{% translate p.color.color %}",
+                    section: "{{ p.get_section_display }}",
+                    strain: "{{ p.strain|default_if_none:'-' }}",
+                    sire: "{{ p.sire|default_if_none:'-' }}",
+                    dam: "{{ p.dam|default_if_none:'-' }}",
+                    status: {% if p.status_id == 1 %}
+                        '<strong class="text-indigo">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 2 %}
+                        '<strong class="text-green">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 3 %}
+                        '<strong class="text-red">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 4 %}
+                        '<strong class="text-blue">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 5 %}
+                        '<strong class="text-purple">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 6 %}
+                        '<strong class="text-orange">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 7 %}
+                        '<strong class="text-pink">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 8 %}
+                        '<strong class="text-cyan">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 9 %}
+                        '<strong class="text-teal">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 10 %}
+                        '<strong class="text-lime">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 11 %}
+                        '<strong class="text-azure">{% translate p.status.status %}</strong>'
+                    {% elif p.status_id == 12 %}
+                        '<strong class="text-yellow">{% translate p.status.status %}</strong>'
+                    {% endif %}
+                },
+            {% endfor %}
+        ]
+        let container = document.querySelector('.porumbei');
+        const searchField = document.querySelector('#search_field');
+        const button = document.querySelector('#export-file');
+
+        let hot = new Handsontable(container, {
+            data: data, // Initiating handsontable object
+            colHeaders: ['{% translate "Gender" %}', '{% translate "Ring details" %}',
+                '{% translate "Color" %}', '{% translate "Section" %}', '{% translate "Strain" %}',
+                '{% translate "Sire" %}', '{% translate "Dam" %}', '{% translate "Status" %}'],
+            rowHeaders: true,
+            // dropdownMenu: true,
+            filters: true,
+            search: true,
+            contextMenu: true,
+            editor: false,
+            width: '100%',
+            height: 'auto',
+            stretchH: 'all',
+            // dropdownMenu: ['filter_by_condition', 'filter_action_bar'],
+            rowHeights: 30,
+            columnSorting: true,
+            // className: ['htCenter'],
+            fixedColumnsStart: [2, 3],
+            allowHtml: true,
+            columns: [
+                {data: "gender", renderer: safeHtmlRenderer},
+                {data: "ring", renderer: safeHtmlRenderer},
+                {data: "color", renderer: Handsontable.renderers.TextRenderer},
+                {data: "section", renderer: Handsontable.renderers.TextRenderer},
+                {data: "strain", renderer: Handsontable.renderers.TextRenderer},
+                {data: "sire", renderer: Handsontable.renderers.TextRenderer},
+                {data: "dam", renderer: Handsontable.renderers.TextRenderer},
+                {data: "status", renderer: safeHtmlRenderer},
+            ],
+            licenseKey: 'non-commercial-and-evaluation'
+        });
+
+        function safeHtmlRenderer(instance, td, row, col, prop, value, cellProperties) {
+            // be sure you only allow certain HTML tags to avoid XSS threats (you should also remove unwanted HTML attributes)
+            td.innerHTML = Handsontable.helper.sanitize(value, {
+                ALLOWED_TAGS: ['svg', 'path', 'circle', 'div', 'span', 'strong', 'a'],
+            });
+        }
+
+        // add a search input listener
+        searchField.addEventListener('keyup', function (event) {
+            // get the `Search` plugin's instance
+            const search = hot.getPlugin('search');
+            // use the `Search` plugin's `query()` method
+            const queryResult = search.query(event.target.value);
+
+            console.log(queryResult);
+
+            hot.render();
+        });
+        const exportPlugin = hot.getPlugin('exportFile');
+
+        button.addEventListener('click', () => {
+            exportPlugin.downloadFile('csv', {
+                bom: false,
+                columnDelimiter: ',',
+                columnHeaders: false,
+                exportHiddenColumns: true,
+                exportHiddenRows: true,
+                fileExtension: 'csv',
+                filename: '{{request.user}}-pigeons_[YYYY]-[MM]-[DD]',
+                mimeType: 'text/csv',
+                rowDelimiter: '\r\n',
+                rowHeaders: true
+            });
+        });
+    </script>
+{% endblock jslibs %}

@@ -1,0 +1,280 @@
+{% extends "breeder/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+    <div class="container-xl">
+        <!-- Page title -->
+        <div class="page-header d-print-none">
+            <div class="row g-2 align-items-center">
+                <div class="col">
+                    <div class="page-pretitle">
+                            <span class="badge badge-outline text-azure"
+                                  title="{% translate "Loft name" %}">{{ lofts.name }}</span>
+                    </div>
+                    <h2 class="page-title">
+                        {% translate "New Pigeon" %}
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-cards">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="card-title">{% translate "Enter pigeon details" %}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-white" aria-label="Button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon text-blue" width="24"
+                                             height="24"
+                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                             stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="2"></circle>
+                                            <path d="M12 19c-4 0 -7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7c-.42 .736 -.858 1.414 -1.311 2.033"></path>
+                                            <path d="M15 19l2 2l4 -4"></path>
+                                        </svg>
+                                        {% translate 'View pigeons' %}
+                                    </a>
+                                    <a href="#" class="btn btn-white" aria-label="Button" type="submit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon text-purple" width="24"
+                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2"></path>
+                                            <circle cx="12" cy="14" r="2"></circle>
+                                            <polyline points="14 4 14 8 8 8 8 4"></polyline>
+                                        </svg>
+                                        {% translate 'Save' %}
+                                    </a>
+                                    <a href="#" class="btn btn-white" aria-label="Button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon text-red" width="24"
+                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                                        </svg>
+                                        {% translate 'Cancel' %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="">{% csrf_token %}
+                                <div class="form-group mb-3 row">
+                                    <label class="col-2 col-form-label required">{% translate "Ring details" %}</label>
+                                    <div class="col-1">
+                                        {{ form.pigeon_country_code|attr:"autofocus" }}
+                                        <datalist id="countryOptions">
+                                            <option value="BE"></option>
+                                            <option value="BG"></option>
+                                            <option value="DE"></option>
+                                            <option value="FR"></option>
+                                            <option value="HU"></option>
+                                            <option value="IT"></option>
+                                            <option value="MD"></option>
+                                            <option value="NL"></option>
+                                            <option value="PL"></option>
+                                            <option value="RO"></option>
+                                        </datalist>
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">
+                                                {{ form.pigeon_country_code.errors }}
+                                            </small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">
+                                                {{ form.pigeon_country_code.help_text }}
+                                            </small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-2">
+                                        {{ form.pigeon_organisation }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">
+                                                {{ form.pigeon_organisation.errors }}
+                                            </small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">
+                                                {{ form.pigeon_organisation.help_text }}
+                                            </small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-2">
+                                        {{ form.pigeon_ring_number }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">
+                                                {{ form.pigeon_ring_number.errors }}
+                                            </small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">
+                                                {{ form.pigeon_ring_number.help_text }}
+                                            </small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-1">
+                                        {{ form.ring_year }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">
+                                                {{ form.ring_year.errors }}
+                                            </small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">
+                                                {{ form.ring_year.help_text }}
+                                            </small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label class="col-2 col-form-label required">{{ form.color.label_tag }}</label>
+                                    <div class="col-2">
+                                        {{ form.color }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">{{ form.color.errors }}</small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">{{ form.color.help_text }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <label class="col-1 col-form-label required">{{ form.eye_color.label_tag }}</label>
+                                    <div class="col-2">
+                                        {{ form.eye_color }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">{{ form.eye_color.errors }}</small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">{{ form.eye_color.help_text }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label class="col-2 col-form-label required">{{ form.gender.label_tag }}</label>
+                                    <div class="col-6">
+                                        {{ form.gender|add_class:'form-select' }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">{{ form.gender.errors }}</small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">{{ form.gender.help_text }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label class="col-2 col-form-label">{{ form.sire.label_tag }}</label>
+                                    <div class="col-sm-2">
+                                        {{ form.sire|attr:"autofocus"|attr:'select-sire' }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">{{ form.sire.errors }}</small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">{{ form.sire.help_text }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <label class="col-1 col-form-label">{{ form.dam.label_tag }}</label>
+                                    <div class="col-sm-2">
+                                        {{ form.dam|attr:'select-dam' }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">{{ form.dam.errors }}</small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">{{ form.dam.help_text }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label class="col-2 col-form-label">{{ form.strain.label_tag }}</label>
+                                    <div class="col-2">
+                                        {{ form.strain }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">{{ form.strain.errors }}</small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">{{ form.strain.help_text }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <label class="col-1 col-form-label">{{ form.line.label_tag }}</label>
+                                    <div class="col-2">
+                                        {{ form.line }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">{{ form.line.errors }}</small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">{{ form.line.help_text }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label class="col-2 col-form-label required">{{ form.status.label_tag }}</label>
+                                    <div class="col-6">
+                                        {{ form.status }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">{{ form.status.errors }}</small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">{{ form.status.help_text }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label class="col-2 col-form-label required">{{ form.section.label_tag }}</label>
+                                    <div class="col-6">
+                                        {{ form.section|add_class:'form-select' }}
+                                        {% if form.errors %}
+                                            <small class="form-hint text-danger">{{ form.section.errors }}</small>
+                                        {% else %}
+                                            <small class="form-hint text-cyan">{{ form.section.help_text }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                                {{ form.errors }}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block jslibs %}
+    <!-- Libs JS -->
+    <script src="{% static 'libs/nouislider/dist/nouislider.min.js' %}" defer></script>
+    <script src="{% static 'libs/litepicker/dist/litepicker.js' %}" defer></script>
+    <script src="{% static 'libs/tom-select/dist/js/tom-select.base.min.js' %}" defer></script>
+{% endblock jslibs %}
+{% block scripts %}
+    <script>
+        // @formatter:off
+        document.addEventListener("DOMContentLoaded", function () {
+            var el;
+            window.TomSelect && (new TomSelect(el = document.getElementById('select-sire'), {
+                copyClassesToDropdown: false,
+                dropdownClass: 'dropdown-menu ts-dropdown',
+                optionClass: 'dropdown-item',
+                controlInput: '<input>',
+                render: {
+                    item: function (data, escape) {
+                        if (data.customProperties) {
+                            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+                        }
+                        return '<div>' + escape(data.text) + '</div>';
+                    },
+                    option: function (data, escape) {
+                        if (data.customProperties) {
+                            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+                        }
+                        return '<div>' + escape(data.text) + '</div>';
+                    },
+                },
+            }));
+        });
+        // @formatter:on
+    </script>
+{% endblock scripts %}
