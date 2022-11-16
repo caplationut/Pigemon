@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from django.utils import translation
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
@@ -9,10 +8,12 @@ from .forms import *
 # Create your views here.
 
 
-@login_required(login_url='login/')
 def add_pigeon(request):
     if request.user.is_authenticated:
         translation.activate(request.user.language)
+    else:
+        return redirect('login')
+
     title = _("Add new pigeon")
     loft = Loft.objects.get(breeder=request.user)
     if request.method == "POST":
@@ -32,10 +33,11 @@ def add_pigeon(request):
     return render(request, "pigeon/add_pigeon.html", context)
 
 
-@login_required(login_url='login/')
 def view_pigeons(request):
     if request.user.is_authenticated:
         translation.activate(request.user.language)
+    else:
+        return redirect('login')
 
     pigeons = Pigeon.objects.filter(loft__breeder=request.user).select_related('sire', 'dam').\
         prefetch_related('loft', 'color', 'status')
@@ -56,10 +58,11 @@ def view_pigeons(request):
     return render(request, "pigeon/pigeons.html", context)
 
 
-@login_required(login_url='login/')
 def edit_pigeon(request, pk):
     if request.user.is_authenticated:
         translation.activate(request.user.language)
+    else:
+        return redirect('login')
 
     try:
         pigeon = Pigeon.objects.get(pk=pk)
@@ -73,11 +76,21 @@ def edit_pigeon(request, pk):
                              format(pigeon.ring_serial))
         return redirect('pigeons')
 
+    if request.method == "POST":
+        form = EditPigeon(request.POST, request.Files, breeder=request.user, instance=pigeon)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.save()
+            return redirect('index')
+    else:
+        form = EditPigeon(instance=pigeon, breeder=request.user)
+
     title = _("Update pigeon info")
 
     context = {
         'title': title,
         'pigeon': pigeon,
+        'form': form,
     }
 
     return render(request, "pigeon/edit_pigeon.html", context)

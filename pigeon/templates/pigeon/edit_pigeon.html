@@ -108,32 +108,9 @@
     </div>
     <div class="page-body">
         <div class="container-xl">
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-warning alert-dismissible" id="success-alert" role="alert">
-                        <div class="d-flex">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="alert-icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M12 9v2m0 4v.01"></path>
-                                    <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2
-                                    2 0 0 0 1.75 2.75"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="alert-title">{% translate "Something happened..." %}</h4>
-                                <div class="text-muted">{{ message }}</div>
-                            </div>
-                        </div>
-                        <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
-                    </div>
-                {% endfor %}
-            {% endif %}
             <div class="row row-cards">
                 <div class="col-lg-9">
-                    <div class="card card-lg">
+                    <div class="card">
                         {% if pigeon.gender == "MA" %}
                             <div class="ribbon bg-azure">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
@@ -172,6 +149,110 @@
                             </div>
                         {% endif %}
                         <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs" data-bs-toggle="tabs">
+                                <li class="nav-item">
+                                    <a href="#tabs-home-13" class="nav-link active" data-bs-toggle="tab">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24"
+                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                            <polyline points="11 12 12 12 12 16 13 16"></polyline>
+                                        </svg>
+                                        {% translate "Info" %}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#tabs-profile-13" class="nav-link" data-bs-toggle="tab">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24"
+                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="5" r="2"></circle>
+                                            <circle cx="8" cy="12" r="2"></circle>
+                                            <circle cx="12" cy="19" r="2"></circle>
+                                            <circle cx="20" cy="19" r="2"></circle>
+                                            <circle cx="4" cy="19" r="2"></circle>
+                                            <circle cx="16" cy="12" r="2"></circle>
+                                            <path d="M5 17l2 -3"></path>
+                                            <path d="M9 10l2 -3"></path>
+                                            <path d="M13 7l2 3"></path>
+                                            <path d="M17 14l2 3"></path>
+                                            <path d="M15 14l-2 3"></path>
+                                            <path d="M9 14l2 3"></path>
+                                        </svg>
+                                        {% translate "Relatives" %}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#tabs-activity-13" class="nav-link" data-bs-toggle="tab">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24"
+                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <line x1="3" y1="21" x2="21" y2="21"></line>
+                                            <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"></path>
+                                            <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"></path>
+                                            <line x1="10" y1="9" x2="14" y2="9"></line>
+                                            <line x1="12" y1="7" x2="12" y2="11"></line>
+                                        </svg>
+                                        {% translate "Medication" %}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active show" id="tabs-home-13">
+                                    <div class="col-md-5">
+                                        <div class="mb-3">
+                                            <label class="form-label">Company</label>
+                                            <input type="text" class="form-control" disabled=""
+                                                   placeholder="Company" value="Creative Code Inc.">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">Username</label>
+                                            <input type="text" class="form-control" placeholder="Username"
+                                                   value="michael23">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">Email address</label>
+                                            <input type="email" class="form-control" placeholder="Email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tabs-profile-13">
+                                    <h4>Profile tab</h4>
+                                    <div>Fringilla egestas nunc quis tellus diam rhoncus ultricies tristique enim at
+                                        diam, sem nunc amet, pellentesque id egestas velit sed
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tabs-activity-13">
+                                    <h4>Activity tab</h4>
+                                    <div>Donec ac vitae diam amet vel leo egestas consequat rhoncus in luctus amet,
+                                        facilisi sit mauris accumsan nibh habitant senectus
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card card-stacked">
+                        <div class="card-header">
+                            <h3 class="card-title">{% translate "Field completion" %}</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="field-completion"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="card card-lg">
+
+                        <div class="card-header">
                             <h3 class="card-title">{% translate "Pigeon details" %}</h3>
                         </div>
                         <div class="card-tabs ">
@@ -205,62 +286,186 @@
                                 <!-- Content of card #1 -->
                                 <div id="tab-top-1" class="card tab-pane active show">
                                     <div class="card-body">
-                                        <div class="card-title">Content of tab #1</div>
-                                        <p class="text-muted">
-                                            {{ pigeon.field_completion }}
-                                        </p>
+                                        <div class="row row-cards">
+                                            <form method="post" action="">{% csrf_token %}
+
+                                                <div class="mb-3">
+                                                    <label class="form-label required">{{ form.loft.label_tag }}</label>
+                                                    {{ form.loft|add_class:"form-select" }}
+                                                    {% if form.errors %}
+                                                        <small class="form-hint text-danger">{{ form.loft.errors }}</small>
+                                                    {% else %}
+                                                        <small class="form-hint text-cyan">{{ form.loft.help_text }}</small>
+                                                    {% endif %}
+                                                    <label class="form-label required">{% translate "Ring details" %}</label>
+                                                    {{ form.pigeon_country_code }}
+                                                    <datalist id="countryOptions">
+                                                        <option value="BE"></option>
+                                                        <option value="BG"></option>
+                                                        <option value="DE"></option>
+                                                        <option value="FR"></option>
+                                                        <option value="HU"></option>
+                                                        <option value="IT"></option>
+                                                        <option value="MD"></option>
+                                                        <option value="NL"></option>
+                                                        <option value="PL"></option>
+                                                        <option value="RO"></option>
+                                                    </datalist>
+                                                    {% if form.errors %}
+                                                        <small class="form-hint text-danger">
+                                                            {{ form.pigeon_country_code.errors }}
+                                                        </small>
+                                                    {% else %}
+                                                        <small class="form-hint text-cyan">
+                                                            {{ form.pigeon_country_code.help_text }}
+                                                        </small>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="col-sm-2">
+                                                        {{ form.pigeon_organisation }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">
+                                                                {{ form.pigeon_organisation.errors }}
+                                                            </small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">
+                                                                {{ form.pigeon_organisation.help_text }}
+                                                            </small>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        {{ form.pigeon_ring_number }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">
+                                                                {{ form.pigeon_ring_number.errors }}
+                                                            </small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">
+                                                                {{ form.pigeon_ring_number.help_text }}
+                                                            </small>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        {{ form.ring_year }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">
+                                                                {{ form.ring_year.errors }}
+                                                            </small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">
+                                                                {{ form.ring_year.help_text }}
+                                                            </small>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label class="col-sm-3 col-form-label">{{ form.color.label_tag }}</label>
+                                                    <div class="col-sm-4">
+                                                        {{ form.color }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">{{ form.color.errors }}</small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">{{ form.color.help_text }}</small>
+                                                        {% endif %}
+                                                    </div>
+                                                    <label class="col-sm-2 col-form-label">{{ form.eye_color.label_tag }}</label>
+                                                    <div class="col-sm-3">
+                                                        {{ form.eye_color }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">{{ form.eye_color.errors }}</small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">{{ form.eye_color.help_text }}</small>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label class="col-2 col-form-label required">{{ form.gender.label_tag }}</label>
+                                                    <div class="col-6">
+                                                        {{ form.gender|add_class:'form-select' }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">{{ form.gender.errors }}</small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">{{ form.gender.help_text }}</small>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label class="col-2 col-form-label">{{ form.sire.label_tag }}</label>
+                                                    <div class="col-sm-2">
+                                                        {{ form.sire|attr:"autofocus"|attr:'select-sire' }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">{{ form.sire.errors }}</small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">{{ form.sire.help_text }}</small>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="col-1"></div>
+                                                    <label class="col-1 col-form-label">{{ form.dam.label_tag }}</label>
+                                                    <div class="col-sm-2">
+                                                        {{ form.dam|attr:'select-dam' }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">{{ form.dam.errors }}</small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">{{ form.dam.help_text }}</small>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label class="col-2 col-form-label">{{ form.strain.label_tag }}</label>
+                                                    <div class="col-2">
+                                                        {{ form.strain }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">{{ form.strain.errors }}</small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">{{ form.strain.help_text }}</small>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="col-1"></div>
+                                                    <label class="col-1 col-form-label">{{ form.line.label_tag }}</label>
+                                                    <div class="col-2">
+                                                        {{ form.line }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">{{ form.line.errors }}</small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">{{ form.line.help_text }}</small>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label class="col-sm-3 col-form-label required">{{ form.status.label_tag }}</label>
+                                                    <div class="col-sm-5">
+                                                        {{ form.status }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">{{ form.status.errors }}</small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">{{ form.status.help_text }}</small>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label class="col-sm-3 col-form-label required">{{ form.section.label_tag }}</label>
+                                                    <div class="col-sm-5">
+                                                        {{ form.section|add_class:'form-select' }}
+                                                        {% if form.errors %}
+                                                            <small class="form-hint text-danger">{{ form.section.errors }}</small>
+                                                        {% else %}
+                                                            <small class="form-hint text-cyan">{{ form.section.help_text }}</small>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="form-footer">
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                                {{ form.errors }}
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Content of card #2 -->
                                 <div id="tab-top-2" class="card tab-pane">
                                     <div class="card-body">
-                                        <div class="row row-cards">
-                                            <div class="col-md">
-                                                <div class="card">
-                                                    <div class="card-status-top bg-blue"></div>
-                                                    <div class="card-header">
-                                                        <h3 class="card-title">{% translate "Offspring" %}</h3>
-                                                    </div>
-                                                    <div class="card-body p-0">
-                                                        <div class="offspring"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md">
-                                                <div class="card">
-                                                    <div class="card-status-top bg-green"></div>
-                                                    <div class="card-header">
-                                                        <h3 class="card-title">Second card</h3>
-                                                    </div>
-                                                    <div class="card-body p-0">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-100"
-                                                             preserveAspectRatio="none" width="400" height="200"
-                                                             viewBox="0 0 400 200" fill="transparent"
-                                                             stroke="var(--tblr-border-color, #b8cef1)">
-                                                            <line x1="0" y1="0" x2="400" y2="200"></line>
-                                                            <line x1="0" y1="200" x2="400" y2="0"></line>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md">
-                                                <div class="card">
-                                                    <div class="card-status-top bg-blue"></div>
-                                                    <div class="card-header">
-                                                        <h3 class="card-title">Third card</h3>
-                                                    </div>
-                                                    <div class="card-body p-0">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-100"
-                                                             preserveAspectRatio="none" width="400" height="200"
-                                                             viewBox="0 0 400 200" fill="transparent"
-                                                             stroke="var(--tblr-border-color, #b8cef1)">
-                                                            <line x1="0" y1="0" x2="400" y2="200"></line>
-                                                            <line x1="0" y1="200" x2="400" y2="0"></line>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <!-- Content of card #3 -->
@@ -289,25 +494,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="card card-stacked">
-                        <div class="card-header">
-                            <h3 class="card-title">{% translate "Field completion" %}</h3>
-                        </div>
-                        <div class="card-body">
-                            <div id="field-completion"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="porumbei"></div>
+
             </div>
         </div>
     </div>
 {% endblock %}
 {% block jslibs %}
     <!-- Libs JS -->
+    <script src="{% static 'libs/fslightbox/index.js' %}" defer></script>
     <script src="{% static 'libs/apexcharts/dist/apexcharts.min.js' %}" defer></script>
     <script>
         // @formatter:off
